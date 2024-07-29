@@ -9,6 +9,7 @@ import (
 )
 
 type Config struct {
+	DiscordID string `json:"discord_id"`
 	WebhookURL string `json:"webhook_url"`
 	KeyPath string `json:"ssh_public_Key"`
 	Instance Instance `json:"instance"`
@@ -28,7 +29,7 @@ func main() {
 	if err != nil {
 
 		if strings.Contains(fmt.Sprint(err), "Out of host capacity.") {
-			alert(config.WebhookURL, 0xff0000, "Out of capacity in domain: "+config.Instance.Domain)
+			alert(config.WebhookURL, 0xff0000, "", "Out of capacity in domain: "+config.Instance.Domain)
 			return
 		}
 
@@ -37,7 +38,7 @@ func main() {
 		return
 	}
 
-	alert(config.WebhookURL, 0x00ff00, "Claimed!")
+	alert(config.WebhookURL, 0x00ff00, "<@"+config.DiscordID+">", "Possible instance claimed! Check OCI panel.")
 	
 }
 

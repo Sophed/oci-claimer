@@ -19,13 +19,14 @@ type Webhook struct {
 	Embeds  []Embed `json:"embeds,omitempty"`
 }
 
-func alert(url string, color int, data string) {
+func alert(url string, color int, content string, data string) {
 	embed := Embed{
 		Title:       "Claim Attempt",
 		Description: data,
 		Color:       color,
 	}
 	message := Webhook{
+		Content: content,
 		Embeds:  []Embed{embed},
 	}
 	err := message.send(url)

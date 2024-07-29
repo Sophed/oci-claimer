@@ -1,4 +1,5 @@
 {
+    "discord_id": "your-discord-user-id-for-alerts",
     "webhook_url": "https://discord.com/api/webhooks/your-webhook-url",
     "ssh_public_Key": "/path/to/public/ssh/key",
     "instance": {
