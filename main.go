@@ -30,12 +30,12 @@ func main() {
 
 		if strings.Contains(fmt.Sprint(err), "Out of host capacity.") {
 			alert(config.WebhookURL, 0xff0000, "", "Out of capacity in domain: "+config.Instance.Domain)
-			return
+			log.Fatal("Out of capacity.")
 		}
 
 		// you're on your own here, good luck
-		fmt.Println(err)
-		return
+		alert(config.WebhookURL, 0xff0000, "<@"+config.DiscordID+">", "Unknown error occurred, check terminal output for more details.")
+		log.Fatal(err)
 	}
 
 	alert(config.WebhookURL, 0x00ff00, "<@"+config.DiscordID+">", "Possible instance claimed! Check OCI panel.")
