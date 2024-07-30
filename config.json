@@ -1,16 +1,16 @@
 {
-    "discord_id": "441666718507597834",
-    "webhook_url": "https://discord.com/api/webhooks/1267572317484093450/ukmhMS9UHqFwycM_2YSWk7KjScAviIIz8k2AeTXhmujctxPmE7rPQ4wIV_71t-eJ5qHV",
-    "ssh_public_Key": "/home/soph/.ssh/id_ed25519.pub",
+    "discord_id": "your-discord-user-id-for-alerts",
+    "webhook_url": "https://discord.com/api/webhooks/your-webhook-url",
+    "ssh_public_Key": "/path/to/public/ssh/key",
     "instance": {
-        "display_name": "Novar",
+        "display_name": "YourInstance",
         "shape": "VM.Standard.A1.Flex",
         "ocpus": 4,
         "memory_gbs": 24,
-        "boot_volume_gbs": 106,
+        "boot_volume_gbs": 100,
         "availability_domain": "JNnY:EU-FRANKFURT-1-AD-1",
-        "compartment_id": "ocid1.tenancy.oc1..aaaaaaaagdb2lzzxcrnzll6qalmezs5qrixs5jvn3pfqxmjxy4qaxszpzomq",
-        "image_id": "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaa3rxaqcvwe2vxxffm4dfivmfb3apn4inqehxgntjrx3f7p4hzk5rq",
-        "subnet_id": "ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaay5zeb32qej2gaihp4h6f3l7gam57lqf2hyub6op3mgwqlcot7sxa"
+        "compartment_id": "ocid1.tenancy.oc1..yourcompartmentid",
+        "image_id": "ocid1.image.oc1.yourimageid",
+        "subnet_id": "ocid1.subnet.oc1.yoursubnetid"
     }
 }
