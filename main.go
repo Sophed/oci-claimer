@@ -33,7 +33,9 @@ func attempt(config Config, domain string) {
 	if err != nil {
 
 		if strings.Contains(fmt.Sprint(err), "Out of host capacity.") {
-			alert(config.WebhookURL, 0xff0000, "", "Out of capacity in domain: "+config.Instance.Domain)
+			if config.NotifyCapacity {
+				alert(config.WebhookURL, 0xff0000, "", "Out of capacity in domain: "+config.Instance.Domain)
+			}
 			fmt.Println("Out of capacity.")
 			return
 		}

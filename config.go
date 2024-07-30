@@ -7,11 +7,12 @@ import (
 )
 
 type Config struct {
-	DiscordID  string   `json:"discord_id"`
-	WebhookURL string   `json:"webhook_url"`
-	KeyPath    string   `json:"ssh_public_Key"`
-	Instance   Instance `json:"instance"`
-	Domains    []string `json:"availability_domains"`
+	DiscordID      string   `json:"discord_id"`
+	WebhookURL     string   `json:"webhook_url"`
+	KeyPath        string   `json:"ssh_public_Key"`
+	Instance       Instance `json:"instance"`
+	Domains        []string `json:"availability_domains"`
+	NotifyCapacity bool     `json:"notify_out_of_capacity"`
 }
 
 func load_config(path string) Config {

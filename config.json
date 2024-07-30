@@ -2,6 +2,7 @@
     "discord_id": "your-discord-user-id-for-alerts",
     "webhook_url": "https://discord.com/api/webhooks/your-webhook-url",
     "ssh_public_Key": "/path/to/public/ssh/key",
+    "notify_out_of_capacity": true,
     "availability_domains": [
         "JNnY:EU-FRANKFURT-1-AD-1",
         "JNnY:EU-FRANKFURT-1-AD-2",
