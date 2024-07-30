@@ -2,13 +2,17 @@
     "discord_id": "your-discord-user-id-for-alerts",
     "webhook_url": "https://discord.com/api/webhooks/your-webhook-url",
     "ssh_public_Key": "/path/to/public/ssh/key",
+    "availability_domains": [
+        "JNnY:EU-FRANKFURT-1-AD-1",
+        "JNnY:EU-FRANKFURT-1-AD-2",
+        "JNnY:EU-FRANKFURT-1-AD-3"
+    ],
     "instance": {
         "display_name": "YourInstance",
         "shape": "VM.Standard.A1.Flex",
         "ocpus": 4,
         "memory_gbs": 24,
         "boot_volume_gbs": 100,
-        "availability_domain": "JNnY:EU-FRANKFURT-1-AD-1",
         "compartment_id": "ocid1.tenancy.oc1..yourcompartmentid",
         "image_id": "ocid1.image.oc1.yourimageid",
         "subnet_id": "ocid1.subnet.oc1.yoursubnetid"

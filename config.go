@@ -11,6 +11,7 @@ type Config struct {
 	WebhookURL string   `json:"webhook_url"`
 	KeyPath    string   `json:"ssh_public_Key"`
 	Instance   Instance `json:"instance"`
+	Domains    []string `json:"availability_domains"`
 }
 
 func load_config(path string) Config {
