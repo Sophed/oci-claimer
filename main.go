@@ -43,7 +43,7 @@ func attempt(config Config, domain string) bool {
 			if config.NotifyCapacity {
 				alert(config.WebhookURL, 0xff0000, "", "Out of capacity in domain: "+config.Instance.Domain)
 			}
-			log.Println("Out of capacity.")
+			log.Println("Out of capacity in " + config.Instance.Domain)
 			return false
 		}
 
