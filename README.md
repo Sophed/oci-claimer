@@ -38,15 +38,7 @@ go build
 - You should then edit the `key_file` value of that same config to the path of your previously downloaded API key
 
 ## Usage
-- The way I run this is probably not super optimal but if you want to do the same feel free
-- I essentially just run this bash script in a `tmux` session
+- Start the program in the background, I personally use a `tmux` session
 ```bash
-#!/bin/bash
-while :
-do
-	./ociclaimer
-	echo "Retrying in 180 seconds, press [CTRL+C] to stop.."
-	sleep 180
-done
+./ociclaimer
 ```
-- If you feel like it, a [cron job](https://www.freecodecamp.org/news/cron-jobs-in-linux/) would likely be more optimal for this setup.

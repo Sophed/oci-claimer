@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -18,16 +19,22 @@ func main() {
 	}
 	config.Instance.SSHPublicKey = string(key)
 
-	for n, s := range config.Domains {
-		attempt(config, s)
-		if n != len(config.Domains)-1 {
-			time.Sleep(time.Second * time.Duration(config.DomainSwitch))
+	for {
+		for n, s := range config.Domains {
+			if attempt(config, s) {
+				return
+			}
+			if n != len(config.Domains)-1 {
+				time.Sleep(time.Second * time.Duration(config.DomainSwitch))
+			}
 		}
+		log.Println("Retrying in " + strconv.Itoa(int(config.RetryDelay)) + " seconds...")
+		time.Sleep(time.Second * time.Duration(config.RetryDelay))
 	}
 
 }
 
-func attempt(config Config, domain string) {
+func attempt(config Config, domain string) bool {
 	config.Instance.Domain = domain
 	err := config.Instance.claim()
 	if err != nil {
@@ -36,14 +43,16 @@ func attempt(config Config, domain string) {
 			if config.NotifyCapacity {
 				alert(config.WebhookURL, 0xff0000, "", "Out of capacity in domain: "+config.Instance.Domain)
 			}
-			fmt.Println("Out of capacity.")
-			return
+			log.Println("Out of capacity.")
+			return false
 		}
 
 		// you're on your own here, good luck
 		alert(config.WebhookURL, 0xff0000, "<@"+config.DiscordID+">", "Unknown error occurred, check terminal output for more details.")
 		fmt.Println(err)
+		return false
 	} else {
 		alert(config.WebhookURL, 0x00ff00, "<@"+config.DiscordID+">", "Possible instance claimed! Check OCI panel.")
+		return true
 	}
 }
