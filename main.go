@@ -21,7 +21,7 @@ func main() {
 	for n, s := range config.Domains {
 		attempt(config, s)
 		if n != len(config.Domains)-1 {
-			time.Sleep(time.Second * 5)
+			time.Sleep(time.Second * time.Duration(config.DomainSwitch))
 		}
 	}
 

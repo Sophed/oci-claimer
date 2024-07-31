@@ -13,6 +13,7 @@ type Config struct {
 	Instance       Instance `json:"instance"`
 	Domains        []string `json:"availability_domains"`
 	NotifyCapacity bool     `json:"notify_out_of_capacity"`
+	DomainSwitch   int32    `json:"availability_domain_switch_delay"`
 }
 
 func load_config(path string) Config {
