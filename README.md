@@ -1,4 +1,9 @@
 # OCI Claimer
+This script is made with the intention of helping new developers get access to useful resources for their projects, that being the free tier of Oracle Cloud Infrastructure, which offers a cloud VPS with 24GB of memory and 4 OCPUs.
+
+If this script helps you at all or you would like to support my work, consider donating to my ko-fi 🩷
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sophed)
 
 > [!WARNING]
 > A \*nix dev environment such as Linux, MacOS or WSL for Windows is HIGHLY recommended to avoid issues
